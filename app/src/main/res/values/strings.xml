@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">TabLayout</string>
+    <string-array name="tabs">
+        <item>PC</item>
+        <item>Keyboard</item>
+        <item>Screen</item>
+        <item>Mouse</item>
+        <item>RAM</item>
+    </string-array>
+</resources>
