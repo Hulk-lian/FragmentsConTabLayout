@@ -24,16 +24,21 @@ public class Main_Activity extends AppCompatActivity {
         //inicializar el tabLayout y crear la pestaña
         tabLayout=(TabLayout)findViewById(R.id.tablayout);
 
-        for(String title : getResources().getStringArray(R.array.tabs))
+        for(String title : getResources().getStringArray(R.array.tabs)) {
             tabLayout.addTab(tabLayout.newTab().setText(title));
 
+        }
+
         viewPager=(ViewPager)findViewById(R.id.viewp);
-        adapter=new ViewPageAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
+        adapter=new ViewPageAdapter(getSupportFragmentManager(),tabLayout.getTabCount(),Main_Activity.this);
         viewPager.setAdapter(adapter);
 
         tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
         tabLayout.setTabGravity(TabLayout.GRAVITY_CENTER);
+        tabLayout.setupWithViewPager(viewPager);
 
+        //region Tabs y demas
+        /*
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -66,7 +71,17 @@ public class Main_Activity extends AppCompatActivity {
 
             }
         });
+        */
+        //endregion
+        setIcons();
 
+        //asignar animacion
+        viewPager.setPageTransformer(true, new AnimationSwip());
+    }
 
+    private void setIcons(){
+        for(int i=0;i<tabLayout.getTabCount();i++){
+            tabLayout.getTabAt(i).setIcon(R.drawable.icon1);
+        }
     }
 }
