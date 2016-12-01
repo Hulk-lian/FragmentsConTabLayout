@@ -32,6 +32,7 @@ public class Main_Activity extends AppCompatActivity {
         viewPager.setAdapter(adapter);
 
         tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
+        tabLayout.setTabGravity(TabLayout.GRAVITY_CENTER);
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
