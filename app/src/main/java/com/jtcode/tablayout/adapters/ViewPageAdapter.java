@@ -54,4 +54,5 @@ public class ViewPageAdapter extends FragmentStatePagerAdapter {
     public int getCount() {
         return tabCount;
     }
+    
 }

@@ -29,6 +29,9 @@ public class Main_Activity extends AppCompatActivity {
 
         viewPager=(ViewPager)findViewById(R.id.viewp);
         adapter=new ViewPageAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
+        viewPager.setAdapter(adapter);
+
+        tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -53,7 +56,8 @@ public class Main_Activity extends AppCompatActivity {
 
             @Override
             public void onPageSelected(int position) {
-                viewPager.setCurrentItem(position);
+                //tabLayout.getTabAt(position).select();
+                tabLayout.setScrollPosition(position,0f,true);
             }
 
             @Override
